@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { PageHeader } from "@/components/page-header";
+
 
 export const Route = createFileRoute("/_app/")({
   head: () => ({
@@ -179,5 +179,3 @@ function Dashboard() {
     </div>
   );
 }
-
-export { PageHeader };

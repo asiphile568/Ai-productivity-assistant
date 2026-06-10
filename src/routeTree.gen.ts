@@ -12,6 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as AppIndexRouteImport } from './routes/_app.index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AppSummarizeRouteImport } from './routes/_app.summarize'
+import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppResearchRouteImport } from './routes/_app.research'
+import { Route as AppPlannerRouteImport } from './routes/_app.planner'
+import { Route as AppEmailRouteImport } from './routes/_app.email'
+import { Route as AppChatRouteImport } from './routes/_app.chat'
 
 const AppRoute = AppRouteImport.update({
   id: '/_app',
@@ -27,27 +33,101 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppSummarizeRoute = AppSummarizeRouteImport.update({
+  id: '/summarize',
+  path: '/summarize',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppResearchRoute = AppResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlannerRoute = AppPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmailRoute = AppEmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChatRoute = AppChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
+  '/chat': typeof AppChatRoute
+  '/email': typeof AppEmailRoute
+  '/planner': typeof AppPlannerRoute
+  '/research': typeof AppResearchRoute
+  '/settings': typeof AppSettingsRoute
+  '/summarize': typeof AppSummarizeRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
+  '/chat': typeof AppChatRoute
+  '/email': typeof AppEmailRoute
+  '/planner': typeof AppPlannerRoute
+  '/research': typeof AppResearchRoute
+  '/settings': typeof AppSettingsRoute
+  '/summarize': typeof AppSummarizeRoute
   '/api/chat': typeof ApiChatRoute
   '/': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteWithChildren
+  '/_app/chat': typeof AppChatRoute
+  '/_app/email': typeof AppEmailRoute
+  '/_app/planner': typeof AppPlannerRoute
+  '/_app/research': typeof AppResearchRoute
+  '/_app/settings': typeof AppSettingsRoute
+  '/_app/summarize': typeof AppSummarizeRoute
   '/api/chat': typeof ApiChatRoute
   '/_app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/chat'
+    | '/email'
+    | '/planner'
+    | '/research'
+    | '/settings'
+    | '/summarize'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/api/chat' | '/'
-  id: '__root__' | '/_app' | '/api/chat' | '/_app/'
+  to:
+    | '/chat'
+    | '/email'
+    | '/planner'
+    | '/research'
+    | '/settings'
+    | '/summarize'
+    | '/api/chat'
+    | '/'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/_app/chat'
+    | '/_app/email'
+    | '/_app/planner'
+    | '/_app/research'
+    | '/_app/settings'
+    | '/_app/summarize'
+    | '/api/chat'
+    | '/_app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -78,14 +158,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/summarize': {
+      id: '/_app/summarize'
+      path: '/summarize'
+      fullPath: '/summarize'
+      preLoaderRoute: typeof AppSummarizeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/research': {
+      id: '/_app/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof AppResearchRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/planner': {
+      id: '/_app/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof AppPlannerRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/email': {
+      id: '/_app/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof AppEmailRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/chat': {
+      id: '/_app/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof AppChatRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppChatRoute: typeof AppChatRoute
+  AppEmailRoute: typeof AppEmailRoute
+  AppPlannerRoute: typeof AppPlannerRoute
+  AppResearchRoute: typeof AppResearchRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppSummarizeRoute: typeof AppSummarizeRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppChatRoute: AppChatRoute,
+  AppEmailRoute: AppEmailRoute,
+  AppPlannerRoute: AppPlannerRoute,
+  AppResearchRoute: AppResearchRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppSummarizeRoute: AppSummarizeRoute,
   AppIndexRoute: AppIndexRoute,
 }
 

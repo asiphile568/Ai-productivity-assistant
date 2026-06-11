@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 import { getGateway } from "@/lib/ai-gateway.server";
 
-const SYSTEM = `You are an AI Workplace Productivity Assistant. Help users with productivity, communication, planning, research, and workplace-related tasks. Be concise, professional, and actionable. Use markdown formatting where helpful.`;
+const SYSTEM = `You are an AsieCore. Help users with productivity, communication, planning, research, and workplace-related tasks. Be concise, professional, and actionable. Use markdown formatting where helpful.`;
 
 export const Route = createFileRoute("/api/chat")({
   server: {

@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/_app/")({
   head: () => ({
     meta: [
-      { title: "Dashboard – AI Workplace Productivity Assistant" },
+      { title: "Dashboard – AsieCore" },
       { name: "description", content: "Automate workplace tasks with AI-powered productivity tools." },
     ],
   }),

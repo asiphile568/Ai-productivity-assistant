@@ -10,7 +10,7 @@ import { PageHeader } from "@/components/page-header";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_app/chat")({
-  head: () => ({ meta: [{ title: "AI Workplace Chatbot" }] }),
+  head: () => ({ meta: [{ title: "AsieCore Chat" }] }),
   component: ChatPage,
 });
 
@@ -80,7 +80,7 @@ function ChatPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <PageHeader
           icon={MessageSquare}
-          title="AI Workplace Chatbot"
+          title="AsieCore Chat"
           description="Your conversational assistant for productivity, planning, and workplace questions."
         />
         {messages.length > 0 && (

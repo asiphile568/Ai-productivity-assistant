@@ -77,7 +77,7 @@ function Page() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground">
           <p>
-            AI Workplace Productivity Assistant · v1.0
+            AsieCore · v1.0
           </p>
           <Separator className="my-3" />
           <p>

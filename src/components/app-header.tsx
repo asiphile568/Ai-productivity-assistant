@@ -10,7 +10,7 @@ export function AppHeader() {
     <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b bg-background/80 px-4 backdrop-blur-md sm:px-6">
       <SidebarTrigger />
       <div className="hidden text-sm font-semibold tracking-tight sm:block">
-        AI Workplace Productivity Assistant
+        AsieCore
       </div>
       <div className="relative ml-auto hidden w-64 md:block">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
